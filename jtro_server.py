@@ -17,9 +17,16 @@ class JTServer:
         json_data = json.dumps(data)
         self.c.send(json_data.encode('utf-8'))
 
+    def reliable_receive(self):
+        json_data = self.c.recv(1024)
+        return json.loads(json_data.decode('utf-8'))
+
     def execute(self, cmd):
-        self.c.send(cmd.encode('utf-8'))
-        return self.c.recv(1024).decode('utf-8')
+        # self.c.send(cmd.encode('utf-8'))
+        # return self.c.recv(1024).decode('utf-8')
+        self.reliable_send(cmd)
+        return self.reliable_receive()
+
 
     def run(self):
         while True:
