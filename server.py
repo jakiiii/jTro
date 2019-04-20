@@ -2,7 +2,7 @@
 import socket
 
 
-class Listener:
+class JtroEmpire:
     def __init__(self, host, port):
         listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -23,5 +23,5 @@ class Listener:
             print(result)
 
 
-jtro_listener = Listener('127.0.0.1', 4545)
-jtro_listener.run()
+jtro_empire = JtroEmpire('127.0.0.1', 4545)
+jtro_empire.run()
