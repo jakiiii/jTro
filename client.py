@@ -3,7 +3,7 @@ import socket
 import subprocess
 
 
-class JtrokWindow:
+class JtrokDoor:
     def __init__(self, host, port):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         self.sock.connect((host, port))
@@ -20,5 +20,5 @@ class JtrokWindow:
         sock.close()
 
 
-jtro_window = JtrokWindow('127.0.0.1', 4545)
-jtro_window.run()
+jtro_door = JtrokDoor('127.0.0.1', 4545)
+jtro_door.run()
